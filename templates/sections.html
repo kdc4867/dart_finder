@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>섹션 선택</title>
+</head>
+<body>
+    <h1>섹션 선택</h1>
+    <form action="/extract" method="post">
+        <input type="hidden" name="rcept_no" value="{{ rcept_no }}">
+        <label for="section_url">섹션 선택:</label>
+        <select id="section_url" name="section_url" required>
+            {% for title, url in sections %}
+                <option value="{{ url }}">{{ title }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="keyword">검색 키워드:</label>
+        <input type="text" id="keyword" name="keyword" required><br>
+        <button type="submit">추출</button>
+    </form>
+</body>
+</html>

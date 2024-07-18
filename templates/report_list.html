@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">보고서 목록</h4>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('extract') }}" method="post">
+                    <div class="mb-3">
+                        <label for="rcept_no" class="form-label">보고서 선택</label>
+                        <select class="form-select" id="rcept_no" name="rcept_no" required>
+                            {% for report in report_list %}
+                                <option value="{{ report['rcept_no'] }}">{{ report['report_nm'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="keyword" class="form-label">검색 키워드</label>
+                        <input type="text" class="form-control" id="keyword" name="keyword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">추출</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

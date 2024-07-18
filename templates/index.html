@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">재무정보 검색</h4>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('search') }}" method="post">
+                    <div class="mb-3">
+                        <label for="stock_code" class="form-label">종목코드</label>
+                        <input type="text" class="form-control" id="stock_code" name="stock_code" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="report_year" class="form-label">연도</label>
+                        <input type="text" class="form-control" id="report_year" name="report_year" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="report_kind" class="form-label">보고서 종류</label>
+                        <select class="form-select" id="report_kind" name="report_kind" required>
+                            <option value="A">정기공시</option>
+                            <option value="B">주요사항보고</option>
+                            <option value="C">발행공시</option>
+                            <option value="D">지분공시</option>
+                            <option value="E">기타공시</option>
+                            <option value="F">외부감사관련</option>
+                            <option value="G">펀드공시</option>
+                            <option value="H">자산유동화</option>
+                            <option value="I">거래소공시</option>
+                            <option value="J">공정위공시</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">검색</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
