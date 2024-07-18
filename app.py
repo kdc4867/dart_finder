@@ -6,11 +6,11 @@ from bs4 import BeautifulSoup, Tag
 import re
 from typing import List, Tuple, Dict, Any
 import logging
-
+import os
 app = Flask(__name__)
 
 # 상수
-API_KEY = '5ec6628d8d7615759fa05045ee03363bc49a080b'
+API_KEY = 'DART_API_KEY'
 SIBLING_LIMIT = 100
 
 # 로깅 설정
